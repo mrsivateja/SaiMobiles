@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/lib/themeStore";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
+import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
 import Wishlist from "./pages/Wishlist";
@@ -30,6 +31,7 @@ const App = () => (
           <TooltipProvider>
             <Sonner />
             <BrowserRouter>
+              <ScrollToTop />
               <Header />
               <main className="min-h-screen">
                 <Routes>
