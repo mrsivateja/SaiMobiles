@@ -1,0 +1,28 @@
+mutation CreateDemoData @transaction @auth(level: USER, insecureReason: "This mutation is for seeding the database with demo data and should only be run by authenticated users for development purposes.") {
+  user_insertMany(data: [
+    {
+      id: "user-alpha",
+      username: "Alice",
+      email: "alice@example.com",
+      createdAt: "2023-01-01T10:00:00Z"
+    },
+    {
+      id: "user-beta",
+      username: "Bob",
+      email: "bob@example.com",
+      createdAt: "2023-01-02T11:00:00Z"
+    }
+  ])
+  post_insertMany(data: [
+    {
+      user: "user-alpha",
+      text: "Hello from Alice!",
+      createdAt: "2023-01-01T10:30:00Z"
+    },
+    {
+      user: "user-beta",
+      text: "Bob's first post!",
+      createdAt: "2023-01-02T11:15:00Z"
+    }
+  ])
+}

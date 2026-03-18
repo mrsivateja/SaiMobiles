@@ -1,0 +1,36 @@
+query ListAllMovies @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  movies {
+    id
+    title
+    genre
+    releaseYear
+  }
+}
+
+query GetMyProfile @auth(level: USER) {
+  profile(where: {userId: {eq_expr: "auth.uid"}}) {
+    id
+    username
+    email
+  }
+}
+
+mutation CreateMovieReview($movieId: UUID!, $rating: Int!, $comment: String) @auth(level: USER) {
+  review_insert(data: {
+    movieId: $movieId,
+    userId_expr: "auth.uid",
+    rating: $rating,
+    comment: $comment
+  }) {
+    id
+  }
+}
+
+mutation AdminUpdateMovie($movieId: UUID!, $title: String, $genre: String) @auth(expr: "auth.token.admin == true") {
+  movie_update(key: {id: $movieId}, data: {
+    title: $title,
+    genre: $genre
+  }) {
+    id
+  }
+}
