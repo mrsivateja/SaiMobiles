@@ -95,7 +95,7 @@ const Contact = () => {
                        </div>
                        <div>
                           <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Protocol Email</p>
-                          <p className="text-sm font-bold text-foreground lowercase">support@mayuri.in</p>
+                          <p className="text-sm font-bold text-foreground lowercase">support@sai.in</p>
                        </div>
                     </div>
                     <div className="flex items-center gap-5 group cursor-pointer">
@@ -104,7 +104,7 @@ const Contact = () => {
                        </div>
                        <div>
                           <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Digital HQ</p>
-                          <p className="text-sm font-bold text-foreground">www.mayuri-mobiles.in</p>
+                          <p className="text-sm font-bold text-foreground">www.sai-mobiles.in</p>
                        </div>
                     </div>
                  </div>
