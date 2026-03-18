@@ -186,27 +186,35 @@ const ProductDetailModal = ({ product, isOpen, onClose }: ProductDetailModalProp
                    ))}
                 </ul>
                  {product.category === "used" && (
-                   <div className="mt-8 space-y-4">
-                      <h4 className="font-black text-xs uppercase tracking-widest text-primary flex items-center gap-2">
-                         <FileBadge2 size={14} /> Certified Quality Report
-                      </h4>
-                      <div className="grid grid-cols-2 gap-3">
-                         <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10 flex flex-col gap-1">
-                            <span className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">Battery Health</span>
-                            <div className="flex items-center gap-2">
-                               <BatteryCharging size={16} className="text-primary" />
-                               <span className="text-sm font-black text-foreground">{product.batteryHealth || 95}%</span>
-                            </div>
-                         </div>
-                         <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10 flex flex-col gap-1">
-                            <span className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">Original Kit</span>
-                            <div className="flex items-center gap-2">
-                               <Box size={16} className="text-primary" />
-                               <span className="text-sm font-black text-foreground">{product.boxIncluded ? "Box & Bill" : "Solo Unit"}</span>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
+                     <div className="mt-8 space-y-4">
+                        <h4 className="font-black text-xs uppercase tracking-widest text-primary flex items-center gap-2">
+                           <FileBadge2 size={14} /> Certified Quality Report
+                        </h4>
+                        <div className="grid grid-cols-2 gap-3">
+                           <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10 flex flex-col gap-1">
+                              <span className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">Battery Health</span>
+                              <div className="flex items-center gap-2">
+                                 <BatteryCharging size={16} className="text-primary" />
+                                 <span className="text-sm font-black text-foreground">{product.batteryHealth || 95}%</span>
+                              </div>
+                           </div>
+                           <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10 flex flex-col gap-1">
+                              <span className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">Original Kit</span>
+                              <div className="flex items-center gap-2">
+                                 <Box size={16} className="text-primary" />
+                                 <span className="text-sm font-black text-foreground">{product.boxIncluded ? "Box & Bill" : "Solo Unit"}</span>
+                              </div>
+                           </div>
+                        </div>
+                        {product.damages && (
+                           <div className="p-4 rounded-2xl bg-destructive/5 border border-destructive/10">
+                              <span className="text-[9px] font-black uppercase text-destructive tracking-widest">Known Issues / Damages</span>
+                              <p className="text-xs font-bold text-foreground mt-1 leading-relaxed">
+                                 {product.damages}
+                              </p>
+                           </div>
+                        )}
+                     </div>
                  )}
                 {product.description && (
                   <div className="mt-6 p-4 rounded-2xl bg-muted/50 border border-border">

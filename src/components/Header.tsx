@@ -27,6 +27,7 @@ const Header = () => {
     { name: t("home"), path: "/" },
     { name: t("newSmartphones"), path: "/products?category=new" },
     { name: t("usedPhonesSection"), path: "/products?category=used" },
+    { name: t("accessoryCategory"), path: "/products?category=accessory" },
     { name: t("repairs"), path: "/repairs" },
     { name: t("sellPhone"), path: "/sell-phone" },
     { name: t("contact"), path: "/contact" },

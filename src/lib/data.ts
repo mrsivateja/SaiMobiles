@@ -26,6 +26,7 @@ export interface Product {
   batteryHealth?: number;
   boxIncluded?: boolean;
   isCarousel?: boolean;
+  damages?: string;
 }
 
 export interface Branch {

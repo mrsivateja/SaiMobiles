@@ -35,34 +35,8 @@ const Index = () => {
   return (
     <div className="min-h-screen pb-20 bg-background">
       {/* Amazon Hero Carousel with Glass Overlay */}
-      <section className="relative overflow-hidden">
-        <Carousel opts={{ align: "center", loop: true }} plugins={[Autoplay({ delay: 4000 })]} className="w-full">
-           <CarouselContent className="-ml-0">
-              {carouselProducts.length > 0 ? (
-                carouselProducts.map((product) => (
-                  <CarouselItem key={product.id} className="pl-0">
-                     <div className="relative h-[300px] md:h-[500px] w-full overflow-hidden flex items-center justify-center bg-muted/20 cursor-pointer" onClick={() => setSelectedProduct(product)}>
-                        <img src={product.image} alt={product.name} className="w-[80%] md:w-[60%] h-[80%] object-contain" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
-                        {theme === 'dark' && <div className="absolute inset-0 bg-black/30 z-0 pointer-events-none" />}
-                        <div className="absolute bottom-10 md:bottom-16 w-full flex flex-col items-center justify-center text-center z-20 px-4">
-                          <span className="bg-primary text-white text-[10px] md:text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest mb-3 shadow-[0_0_15px_rgba(var(--primary),0.5)]">Featured Deal</span>
-                          <h3 className="text-2xl md:text-5xl font-black text-foreground drop-shadow-2xl">{product.name}</h3>
-                        </div>
-                     </div>
-                  </CarouselItem>
-                ))
-              ) : (
-                <CarouselItem className="pl-0">
-                   <div className="relative h-[300px] md:h-[500px] w-full overflow-hidden">
-                      <img src={heroBg} alt="Premium Mobiles" className="w-full h-full object-cover scale-105" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
-                      {theme === 'dark' && <div className="absolute inset-0 bg-black/30 z-0 pointer-events-none" />}
-                   </div>
-                </CarouselItem>
-              )}
-           </CarouselContent>
-        </Carousel>
+      {/* Hero Section Placeholder/Space Adjustment */}
+      <div className="pt-10" />
 
         {/* Special Offers Section - Moved here to be "on top" of other content, but below hero */}
         <div className="relative z-30 section-padding mb-8">
@@ -185,9 +159,8 @@ const Index = () => {
                  </div>
                  <Link to="/products?category=accessory" className="link-amazon-glass text-[10px] font-black uppercase tracking-[0.2em] block">{t("viewAll")}</Link>
               </div>
-           </div>
-        </div>
-      </section>
+            </div>
+         </div>
 
       {/* RECENTLY VIEWED - Functional Addition */}
       {viewedProducts.length > 0 && (

@@ -187,22 +187,28 @@ const ProductForm = ({ product, setProduct, isNew, handleAddProduct, handleUpdat
       </div>
 
       {product.category === "used" && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label className="text-sm font-black uppercase tracking-widest text-muted-foreground text-orange-500">Battery Health (%)</Label>
-            <Input type="number" value={product.batteryHealth || ""} onChange={(e) => setProduct({ ...product, batteryHealth: Number(e.target.value) })} className="rounded-xl h-11 bg-muted/20 border-border/50 font-bold" placeholder="e.g. 98" />
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label className="text-sm font-black uppercase tracking-widest text-muted-foreground text-orange-500">Battery Health (%)</Label>
+              <Input type="number" value={product.batteryHealth || ""} onChange={(e) => setProduct({ ...product, batteryHealth: Number(e.target.value) })} className="rounded-xl h-11 bg-muted/20 border-border/50 font-bold" placeholder="e.g. 98" />
+            </div>
+            <div className="space-y-2">
+              <Label className="text-sm font-black uppercase tracking-widest text-muted-foreground text-orange-500">Original Box & Bill</Label>
+              <Select value={product.boxIncluded ? "yes" : "no"} onValueChange={(v) => setProduct({ ...product, boxIncluded: v === "yes" })}>
+                <SelectTrigger className="rounded-xl h-11 bg-muted/20 border-border/50 font-bold"><SelectValue /></SelectTrigger>
+                <SelectContent className="rounded-xl">
+                  <SelectItem value="yes" className="font-bold">Box & Bill Available</SelectItem>
+                  <SelectItem value="no" className="font-bold">Only Unit</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
           <div className="space-y-2">
-            <Label className="text-sm font-black uppercase tracking-widest text-muted-foreground text-orange-500">Original Box & Bill</Label>
-            <Select value={product.boxIncluded ? "yes" : "no"} onValueChange={(v) => setProduct({ ...product, boxIncluded: v === "yes" })}>
-              <SelectTrigger className="rounded-xl h-11 bg-muted/20 border-border/50 font-bold"><SelectValue /></SelectTrigger>
-              <SelectContent className="rounded-xl">
-                <SelectItem value="yes" className="font-bold">Box & Bill Available</SelectItem>
-                <SelectItem value="no" className="font-bold">Only Unit</SelectItem>
-              </SelectContent>
-            </Select>
+            <Label className="text-sm font-black uppercase tracking-widest text-muted-foreground text-orange-500">Damages (Optional)</Label>
+            <Input value={product.damages || ""} onChange={(e) => setProduct({ ...product, damages: e.target.value })} className="rounded-xl h-11 bg-muted/20 border-border/50 font-bold" placeholder="e.g. Minor scratch on screen" />
           </div>
-        </div>
+        </>
       )}
 
       <div className="space-y-2">
